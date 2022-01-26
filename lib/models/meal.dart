@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
-
 enum Complexity {
   Simple,
   Medium,
   Difficult,
 }
 
-enum Cost{
+enum Cost {
   Cheap,
   Fair,
   Expensive,
@@ -27,7 +25,6 @@ class Meal {
   final Complexity complexity;
   final Cost cost;
 
-
   const Meal({
     required this.id,
     required this.categories,
@@ -42,5 +39,32 @@ class Meal {
     required this.isVegetarian,
     required this.complexity,
     required this.cost,
-});
+  });
+
+  String get complexityText {
+    switch (complexity) {
+      case Complexity.Simple:
+        return 'Simples';
+      case Complexity.Difficult:
+        return 'Dificil';
+      case Complexity.Medium:
+        return 'Media';
+      default:
+        return 'Desconhecida';
+    }
+  }
+
+  String get costText {
+    switch (cost) {
+      case Cost.Cheap:
+        return 'Barato';
+      case Cost.Expensive:
+        return 'Caro';
+      case Cost.Fair:
+        return 'Justo';
+      default:
+        return 'Desconhecido';
+    }
+  }
+
 }
